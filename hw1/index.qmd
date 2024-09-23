@@ -1,0 +1,11 @@
+---
+title: "Assignment 1"
+author: "Yannick Heibei"
+---
+
+Remco for the win.
+
+```{r}
+x <- rnorm(10000, mean = 100, sd = 15)
+boxplot(x)
+```
