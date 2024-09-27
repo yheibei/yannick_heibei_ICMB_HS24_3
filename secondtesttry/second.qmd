@@ -1,0 +1,10 @@
+---
+title: "Second Try secondLaptop"
+---
+
+textext
+
+```{r}
+x<- rnorm(10000, mean = 100, sd = 15)
+boxplot(x)
+```
