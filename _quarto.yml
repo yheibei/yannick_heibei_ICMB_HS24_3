@@ -10,7 +10,7 @@ execute:
   cache: true
 
 website:
-  title: "Example Student: ICMB portfolio"
+  title: "Yannick Heibei: ICMB portfolio"
   back-to-top-navigation: true
   page-navigation: true
   navbar:
@@ -22,6 +22,7 @@ website:
     contents: 
       - index.qmd
       - hw1/index.qmd
+      - secondtesttry/second.qmd
 
 format:
   html:
