@@ -16,7 +16,6 @@ website:
   navbar:
     left:
       - href: index.qmd
-        text: About
   sidebar: 
     collapse-level: 1
     contents: 
