@@ -6,7 +6,6 @@
     "section": "",
     "text": "textext\n\n\nCode\nx&lt;- rnorm(10000, mean = 100, sd = 15)\nboxplot(x)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n Back to top",
     "crumbs": [
-      "About",
       "Second Try secondLaptop"
     ]
   },
@@ -24,7 +23,6 @@
     "section": "",
     "text": "Remco for the win.\n\n\nCode\nx &lt;- rnorm(10000, mean = 100, sd = 15)\nboxplot(x)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n Back to top",
     "crumbs": [
-      "About",
       "Assignment 1"
     ]
   }
