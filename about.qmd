@@ -4,6 +4,8 @@ title: "About"
 
 Welcome to my Quarto Website
 
+Yannick Heibei
+
 ```{r}
 1 + 1
 ```
