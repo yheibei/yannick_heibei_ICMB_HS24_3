@@ -21,7 +21,7 @@ website:
     contents: 
       - about.qmd
       - hw1/index.qmd
-      - secondtesttry/second.qmd
+      - hw2/index.qmd
 
 format:
   html:
