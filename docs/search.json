@@ -10,6 +10,16 @@
     ]
   },
   {
+    "objectID": "hw1/index.html",
+    "href": "hw1/index.html",
+    "title": "Assignment 1",
+    "section": "",
+    "text": "Remco for the win.\n\n\nCode\nx &lt;- rnorm(10000, mean = 100, sd = 15)\nboxplot(x)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Assignment 1"
+    ]
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
@@ -20,13 +30,10 @@
     ]
   },
   {
-    "objectID": "hw1/index.html",
-    "href": "hw1/index.html",
-    "title": "Assignment 1",
+    "objectID": "hw2/index.html",
+    "href": "hw2/index.html",
+    "title": "",
     "section": "",
-    "text": "Remco for the win.\n\n\nCode\nx &lt;- rnorm(10000, mean = 100, sd = 15)\nboxplot(x)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Assignment 1"
-    ]
+    "text": "Code\n\n\n\n\n\n\n\n\n\n Back to top"
   }
 ]
