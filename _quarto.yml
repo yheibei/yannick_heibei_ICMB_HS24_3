@@ -19,6 +19,7 @@ website:
   sidebar: 
     collapse-level: 1
     contents: 
+      - about.qmd
       - hw1/index.qmd
       - secondtesttry/second.qmd
 
