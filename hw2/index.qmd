@@ -1,2 +1,198 @@
----\
-title: Homework 2
+---
+title: "Assignment 2"
+author: "Yannick Heibei"
+---
+
+Assignment 2: Economics Simulation
+
+This Assignement relied heavily on AI.
+
+First, I want to define the default size and mean of the population an then initialize the population.
+
+In a Scripts file, I defined the gini function.
+
+Then I create a histogram of the population.
+
+```{r}
+N <-5000 # Default size of the population
+MU<- 10000 # Default mean of the population
+sd_wealth <- 3000
+population <- rnorm(N,MU,sd_wealth)
+library("ggplot2")
+source("Scripts/functions.R")        
+gini(population)
+hist(population, main= "Population", xlab= "wealth", ylab="count", breaks = 25)
+```
+
+Now what will happen, when two agents meet?
+
+**Transactions**
+
+First I define what happens in a transaction, a random split.
+
+```{r}
+random_split <- function(A, B) {
+  
+  # Ensure that A and B are not NULL or NA
+  if (is.null(A) || length(A) == 0 || is.na(A)) A <- 0
+  if (is.null(B) || length(B) == 0 || is.na(B)) B <- 0
+  
+  # Calculate the total pot
+  pot <- A + B
+ 
+# Handle case where both actors have no wealth (pot = 0)
+  if (pot == 0) {
+    return(c(0, 0))  # Both actors get nothing
+  }    
+  # Generate a random share between 0 and the total pot
+  share <- runif(1, 0, pot)
+  
+  # Return the two shares (first actor and second actor)
+  return(c(share, pot - share))
+}
+random_split(100,100)
+
+```
+
+**Interactions**
+
+Two random actors shall meet.
+
+```{r}
+anyone <- function(N) {
+  sample(0:(N-1), 2)  # Randomly pick two different actors from the range 0 to N-1
+}
+
+# Example: Select two random actors from a population
+N <- 5000  # Define the size of the population
+anyone(N)
+```
+
+**Simulation**
+
+A function, how to perform single steps in simulation is needed, then for T steps.
+
+```{r}
+# Function to perform a single step in the simulation
+step <- function(population, transaction = random_split, interaction = anyone) {
+  indices <- interaction(length(population))  # Select two actors
+  i <- indices[1]
+  j <- indices[2]
+  
+  # Split the wealth between the two actors
+  new_wealth <- transaction(population[i], population[j])
+  
+  # Update population with new wealth
+  population[i] <- new_wealth[1]
+  population[j] <- new_wealth[2]
+  
+  return(population)
+}
+
+# Function to simulate the population over T transactions
+simulate <- function(population, T, step_function = step, transaction = random_split, interaction = anyone) {
+  # Create a copy of the population to avoid modifying the original
+  population_history <- list(population)
+  
+  # Iterate through each time step
+  for (t in 1:T) {
+    population <- step_function(population, transaction, interaction)
+    population_history[[length(population_history) + 1]] <- population
+  }
+  
+  return(population_history)  # Return the full history of population
+}
+
+# Example: Simulating a population of 4 actors for 8 time steps
+population <- rep(100, 4)  # Initial population where each actor has 100 wealth
+T <- 8  # Number of time steps
+
+# Run the simulation
+simulation_result <- simulate(population, T)
+
+# Print the result of each step in the simulation
+for (pop in simulation_result) {
+  print(pop)
+}
+```
+
+**Simulation Visualization**
+
+For many steps, another way to visualize is needed.
+
+```{r}
+# Define the function to calculate percentiles
+percent <- function(pct, items) {
+  sorted_items <- sort(items, na.last = TRUE)
+  index <- min(length(sorted_items), ceiling(length(sorted_items) * pct / 100))
+  return(sorted_items[index])
+}
+
+# Define the show function for visualization
+show <- function(population, k = 40, percentiles = c(1, 10, 50, 90, 99)) {
+  N <- length(population)
+  start <- population
+  results <- list()
+
+  # Run simulation and collect results at intervals
+  for (t in seq(0, k * N, by = N / 10)) {
+    pop <- simulate(population, T = k * N)
+    results[[length(results) + 1]] <- list(t = t, pop = sort(as.numeric(pop[[t + 1]])))  # Ensure pop is numeric and sorted
+  }
+
+  # Print statistics
+  cat('   t    Gini stdev', paste(sprintf("%3d%%", percentiles), collapse = " "), "\n")
+  cat('------- ---- -----', paste(rep('----', length(percentiles)), collapse = " "), "\n")
+  
+  for (result in results) {
+    t <- result$t
+    pop <- result$pop
+    if (t %% (k * N / 10) == 0) {
+      data <- sapply(percentiles, percent, items = pop)
+      cat(sprintf('%7d %.2f %.1f', t, gini(pop), sd(pop)), data, "\n")
+    }
+  }
+
+  # Prepare data for plotting percentiles
+  percent_plot_data <- data.frame()
+  for (result in results) {
+    t <- result$t
+    pop <- result$pop
+    percent_values <- sapply(percentiles, percent, items = pop)
+    percent_plot_data <- rbind(percent_plot_data, c(t, percent_values))
+  }
+  
+  colnames(percent_plot_data) <- c("t", paste0("pct_", percentiles))
+  
+  # Plot using ggplot2
+  percent_plot_data_long <- reshape(percent_plot_data, varying = paste0("pct_", percentiles),
+                                     v.names = "percentile", timevar = "percentile_type",
+                                     times = percentiles, direction = "long")
+  
+  ggplot(percent_plot_data_long, aes(x = percentile, y = t, color = as.factor(percentile_type))) +
+    geom_line() +
+    labs(title = "Percentile Plots", x = "Wealth", y = "Time") +
+    theme_minimal() +
+    scale_color_discrete(name = "Percentiles") +
+    theme(legend.position = "bottom")
+
+  # Histograms
+  par(mfrow = c(1, 2))
+  hist(start, main = "Histogram of Start Wealth", xlab = "Wealth", col = "lightblue", breaks = 10)
+  hist(pop, main = "Histogram of End Wealth", xlab = "Wealth", col = "lightgreen", breaks = 10)
+
+  # Ordered Curves
+  order <- seq_along(pop)
+  plot(sort(start), order, type = 'l', col = "blue", xlab = "Wealth", ylab = "Order", 
+       main = "Ordered Curves")
+  lines(sort(pop), order, col = "red")
+  legend("topleft", legend = c("Start", "End"), col = c("blue", "red"), lty = 1)
+  grid()
+}
+
+# Example usage
+population <- rep(100, 4)  # Initial population of 4 actors with wealth of 100 each
+show(population)  # Run the show function to visualize results
+```
+
+\`\`\`

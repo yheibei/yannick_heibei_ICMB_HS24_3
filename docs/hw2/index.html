@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Yannick Heibei">
 
-<title>index – Yannick Heibei: ICMB portfolio</title>
+<title>Assignment 2 – Yannick Heibei: ICMB portfolio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,6 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../hw1/index.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -137,7 +139,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../hw2/index.html">Assignment 2</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -163,8 +165,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../secondtesttry/second.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Second Try secondLaptop</span></a>
+  <a href="../hw2/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Assignment 2</span></a>
   </div>
 </li>
     </ul>
@@ -176,11 +178,280 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         
     </div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content"><div class="quarto-title-block"><div class="quarto-title-tools-only"><h1></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<main class="content column-page-right" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Assignment 2</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+</div>
 
 
 
+<div class="quarto-title-meta column-page-right">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Yannick Heibei </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Assignment 2: Economics Simulation</p>
+<p>This Assignement relied heavily on AI.</p>
+<p>First, I want to define the default size and mean of the population an then initialize the population.</p>
+<p>In a Scripts file, I defined the gini function.</p>
+<p>Then I create a histogram of the population.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span><span class="dv">5000</span> <span class="co"># Default size of the population</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>MU<span class="ot">&lt;-</span> <span class="dv">10000</span> <span class="co"># Default mean of the population</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>sd_wealth <span class="ot">&lt;-</span> <span class="dv">3000</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>population <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(N,MU,sd_wealth)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"ggplot2"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"Scripts/functions.R"</span>)        </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">gini</span>(population)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1685451</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(population, <span class="at">main=</span> <span class="st">"Population"</span>, <span class="at">xlab=</span> <span class="st">"wealth"</span>, <span class="at">ylab=</span><span class="st">"count"</span>, <span class="at">breaks =</span> <span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Now what will happen, when two agents meet?</p>
+<p><strong>Transactions</strong></p>
+<p>First I define what happens in a transaction, a random split.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>random_split <span class="ot">&lt;-</span> <span class="cf">function</span>(A, B) {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Ensure that A and B are not NULL or NA</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(A) <span class="sc">||</span> <span class="fu">length</span>(A) <span class="sc">==</span> <span class="dv">0</span> <span class="sc">||</span> <span class="fu">is.na</span>(A)) A <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(B) <span class="sc">||</span> <span class="fu">length</span>(B) <span class="sc">==</span> <span class="dv">0</span> <span class="sc">||</span> <span class="fu">is.na</span>(B)) B <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate the total pot</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  pot <span class="ot">&lt;-</span> A <span class="sc">+</span> B</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Handle case where both actors have no wealth (pot = 0)</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (pot <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>))  <span class="co"># Both actors get nothing</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  }    </span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Generate a random share between 0 and the total pot</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  share <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">1</span>, <span class="dv">0</span>, pot)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Return the two shares (first actor and second actor)</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">c</span>(share, pot <span class="sc">-</span> share))</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="fu">random_split</span>(<span class="dv">100</span>,<span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  50.26935 149.73065</code></pre>
+</div>
+</div>
+<p><strong>Interactions</strong></p>
+<p>Two random actors shall meet.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>anyone <span class="ot">&lt;-</span> <span class="cf">function</span>(N) {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span>(N<span class="dv">-1</span>), <span class="dv">2</span>)  <span class="co"># Randomly pick two different actors from the range 0 to N-1</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Select two random actors from a population</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">5000</span>  <span class="co"># Define the size of the population</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">anyone</span>(N)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3363 1576</code></pre>
+</div>
+</div>
+<p><strong>Simulation</strong></p>
+<p>A function, how to perform single steps in simulation is needed, then for T steps.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to perform a single step in the simulation</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>step <span class="ot">&lt;-</span> <span class="cf">function</span>(population, <span class="at">transaction =</span> random_split, <span class="at">interaction =</span> anyone) {</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  indices <span class="ot">&lt;-</span> <span class="fu">interaction</span>(<span class="fu">length</span>(population))  <span class="co"># Select two actors</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  i <span class="ot">&lt;-</span> indices[<span class="dv">1</span>]</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  j <span class="ot">&lt;-</span> indices[<span class="dv">2</span>]</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Split the wealth between the two actors</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  new_wealth <span class="ot">&lt;-</span> <span class="fu">transaction</span>(population[i], population[j])</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Update population with new wealth</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  population[i] <span class="ot">&lt;-</span> new_wealth[<span class="dv">1</span>]</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  population[j] <span class="ot">&lt;-</span> new_wealth[<span class="dv">2</span>]</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(population)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to simulate the population over T transactions</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>simulate <span class="ot">&lt;-</span> <span class="cf">function</span>(population, T, <span class="at">step_function =</span> step, <span class="at">transaction =</span> random_split, <span class="at">interaction =</span> anyone) {</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create a copy of the population to avoid modifying the original</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>  population_history <span class="ot">&lt;-</span> <span class="fu">list</span>(population)</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Iterate through each time step</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (t <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>T) {</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>    population <span class="ot">&lt;-</span> <span class="fu">step_function</span>(population, transaction, interaction)</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>    population_history[[<span class="fu">length</span>(population_history) <span class="sc">+</span> <span class="dv">1</span>]] <span class="ot">&lt;-</span> population</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(population_history)  <span class="co"># Return the full history of population</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Simulating a population of 4 actors for 8 time steps</span></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>population <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">100</span>, <span class="dv">4</span>)  <span class="co"># Initial population where each actor has 100 wealth</span></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>T <span class="ot">&lt;-</span> <span class="dv">8</span>  <span class="co"># Number of time steps</span></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the simulation</span></span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>simulation_result <span class="ot">&lt;-</span> <span class="fu">simulate</span>(population, T)</span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the result of each step in the simulation</span></span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (pop <span class="cf">in</span> simulation_result) {</span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(pop)</span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 100 100 100 100
+[1] 100.000000 190.666357   9.333643 100.000000
+[1] 228.856852  61.809505   9.333643 100.000000
+[1] 228.856852  49.510849   9.333643 100.000000
+[1] 239.843544  38.524158   9.333643 100.000000
+[1] 239.843544   9.805652   9.333643 100.000000
+[1] 239.843544   4.335349  14.803946 100.000000
+[1] 239.8435437   0.5212126  18.6180830 100.0000000
+[1] 239.8435437   0.4725872  18.6180830 100.0000000</code></pre>
+</div>
+</div>
+<p><strong>Simulation Visualization</strong></p>
+<p>For many steps, another way to visualize is needed.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the function to calculate percentiles</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>percent <span class="ot">&lt;-</span> <span class="cf">function</span>(pct, items) {</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  sorted_items <span class="ot">&lt;-</span> <span class="fu">sort</span>(items, <span class="at">na.last =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  index <span class="ot">&lt;-</span> <span class="fu">min</span>(<span class="fu">length</span>(sorted_items), <span class="fu">ceiling</span>(<span class="fu">length</span>(sorted_items) <span class="sc">*</span> pct <span class="sc">/</span> <span class="dv">100</span>))</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(sorted_items[index])</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the show function for visualization</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>show <span class="ot">&lt;-</span> <span class="cf">function</span>(population, <span class="at">k =</span> <span class="dv">40</span>, <span class="at">percentiles =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">50</span>, <span class="dv">90</span>, <span class="dv">99</span>)) {</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  N <span class="ot">&lt;-</span> <span class="fu">length</span>(population)</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  start <span class="ot">&lt;-</span> population</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  results <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Run simulation and collect results at intervals</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (t <span class="cf">in</span> <span class="fu">seq</span>(<span class="dv">0</span>, k <span class="sc">*</span> N, <span class="at">by =</span> N <span class="sc">/</span> <span class="dv">10</span>)) {</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    pop <span class="ot">&lt;-</span> <span class="fu">simulate</span>(population, <span class="at">T =</span> k <span class="sc">*</span> N)</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    results[[<span class="fu">length</span>(results) <span class="sc">+</span> <span class="dv">1</span>]] <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">t =</span> t, <span class="at">pop =</span> <span class="fu">sort</span>(<span class="fu">as.numeric</span>(pop[[t <span class="sc">+</span> <span class="dv">1</span>]])))  <span class="co"># Ensure pop is numeric and sorted</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Print statistics</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">'   t    Gini stdev'</span>, <span class="fu">paste</span>(<span class="fu">sprintf</span>(<span class="st">"%3d%%"</span>, percentiles), <span class="at">collapse =</span> <span class="st">" "</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">'------- ---- -----'</span>, <span class="fu">paste</span>(<span class="fu">rep</span>(<span class="st">'----'</span>, <span class="fu">length</span>(percentiles)), <span class="at">collapse =</span> <span class="st">" "</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (result <span class="cf">in</span> results) {</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>    t <span class="ot">&lt;-</span> result<span class="sc">$</span>t</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>    pop <span class="ot">&lt;-</span> result<span class="sc">$</span>pop</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (t <span class="sc">%%</span> (k <span class="sc">*</span> N <span class="sc">/</span> <span class="dv">10</span>) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>      data <span class="ot">&lt;-</span> <span class="fu">sapply</span>(percentiles, percent, <span class="at">items =</span> pop)</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">'%7d %.2f %.1f'</span>, t, <span class="fu">gini</span>(pop), <span class="fu">sd</span>(pop)), data, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Prepare data for plotting percentiles</span></span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>  percent_plot_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (result <span class="cf">in</span> results) {</span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>    t <span class="ot">&lt;-</span> result<span class="sc">$</span>t</span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>    pop <span class="ot">&lt;-</span> result<span class="sc">$</span>pop</span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>    percent_values <span class="ot">&lt;-</span> <span class="fu">sapply</span>(percentiles, percent, <span class="at">items =</span> pop)</span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>    percent_plot_data <span class="ot">&lt;-</span> <span class="fu">rbind</span>(percent_plot_data, <span class="fu">c</span>(t, percent_values))</span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>(percent_plot_data) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"t"</span>, <span class="fu">paste0</span>(<span class="st">"pct_"</span>, percentiles))</span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Plot using ggplot2</span></span>
+<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a>  percent_plot_data_long <span class="ot">&lt;-</span> <span class="fu">reshape</span>(percent_plot_data, <span class="at">varying =</span> <span class="fu">paste0</span>(<span class="st">"pct_"</span>, percentiles),</span>
+<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">v.names =</span> <span class="st">"percentile"</span>, <span class="at">timevar =</span> <span class="st">"percentile_type"</span>,</span>
+<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">times =</span> percentiles, <span class="at">direction =</span> <span class="st">"long"</span>)</span>
+<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(percent_plot_data_long, <span class="fu">aes</span>(<span class="at">x =</span> percentile, <span class="at">y =</span> t, <span class="at">color =</span> <span class="fu">as.factor</span>(percentile_type))) <span class="sc">+</span></span>
+<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Percentile Plots"</span>, <span class="at">x =</span> <span class="st">"Wealth"</span>, <span class="at">y =</span> <span class="st">"Time"</span>) <span class="sc">+</span></span>
+<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_discrete</span>(<span class="at">name =</span> <span class="st">"Percentiles"</span>) <span class="sc">+</span></span>
+<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span>
+<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Histograms</span></span>
+<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hist</span>(start, <span class="at">main =</span> <span class="st">"Histogram of Start Wealth"</span>, <span class="at">xlab =</span> <span class="st">"Wealth"</span>, <span class="at">col =</span> <span class="st">"lightblue"</span>, <span class="at">breaks =</span> <span class="dv">10</span>)</span>
+<span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hist</span>(pop, <span class="at">main =</span> <span class="st">"Histogram of End Wealth"</span>, <span class="at">xlab =</span> <span class="st">"Wealth"</span>, <span class="at">col =</span> <span class="st">"lightgreen"</span>, <span class="at">breaks =</span> <span class="dv">10</span>)</span>
+<span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Ordered Curves</span></span>
+<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a>  order <span class="ot">&lt;-</span> <span class="fu">seq_along</span>(pop)</span>
+<span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(<span class="fu">sort</span>(start), order, <span class="at">type =</span> <span class="st">'l'</span>, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">xlab =</span> <span class="st">"Wealth"</span>, <span class="at">ylab =</span> <span class="st">"Order"</span>, </span>
+<span id="cb10-64"><a href="#cb10-64" aria-hidden="true" tabindex="-1"></a>       <span class="at">main =</span> <span class="st">"Ordered Curves"</span>)</span>
+<span id="cb10-65"><a href="#cb10-65" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lines</span>(<span class="fu">sort</span>(pop), order, <span class="at">col =</span> <span class="st">"red"</span>)</span>
+<span id="cb10-66"><a href="#cb10-66" aria-hidden="true" tabindex="-1"></a>  <span class="fu">legend</span>(<span class="st">"topleft"</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"Start"</span>, <span class="st">"End"</span>), <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"red"</span>), <span class="at">lty =</span> <span class="dv">1</span>)</span>
+<span id="cb10-67"><a href="#cb10-67" aria-hidden="true" tabindex="-1"></a>  <span class="fu">grid</span>()</span>
+<span id="cb10-68"><a href="#cb10-68" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-69"><a href="#cb10-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-70"><a href="#cb10-70" aria-hidden="true" tabindex="-1"></a><span class="co"># Example usage</span></span>
+<span id="cb10-71"><a href="#cb10-71" aria-hidden="true" tabindex="-1"></a>population <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">100</span>, <span class="dv">4</span>)  <span class="co"># Initial population of 4 actors with wealth of 100 each</span></span>
+<span id="cb10-72"><a href="#cb10-72" aria-hidden="true" tabindex="-1"></a><span class="fu">show</span>(population)  <span class="co"># Run the show function to visualize results</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>   t    Gini stdev   1%  10%  50%  90%  99% 
+------- ---- ----- ---- ---- ---- ---- ---- 
+      0 0.00 0.0 100 100 100 100 100 
+     16 0.46 41.4 7.807212 7.807212 17.8463 100 100 
+     32 0.71 48.9 0.2767724 0.2767724 0.9071314 100 100 
+     48 0.69 48.4 0.03903079 0.03903079 3.561609 100 100 
+     64 0.74 49.8 0.183118 0.183118 0.3110197 100 100 
+     80 0.75 50.0 0.002745791 0.002745791 0.003775999 100 100 
+     96 0.75 50.0 6.484818e-06 6.484818e-06 1.570798e-05 100 100 
+    112 0.75 50.0 0.0001671038 0.0001671038 0.002142176 100 100 
+    128 0.75 50.0 6.613367e-05 6.613367e-05 7.78599e-05 100 100 
+    144 0.75 50.0 1.848457e-08 1.848457e-08 2.893865e-08 100 100 
+    160 0.75 50.0 0.0003454567 0.0003454567 0.0004918122 100 100 </code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>```</p>
 
 
 <!-- -->
@@ -657,8 +928,215 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</script>
+<nav class="page-navigation column-page-right">
+  <div class="nav-page nav-page-previous">
+      <a href="../hw1/index.html" class="pagination-link" aria-label="Assignment 1">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Assignment 1</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb12" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Assignment 2"</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Yannick Heibei"</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>Assignment 2: Economics Simulation</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>This Assignement relied heavily on AI.</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>First, I want to define the default size and mean of the population an then initialize the population.</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>In a Scripts file, I defined the gini function.</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>Then I create a histogram of the population.</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span><span class="dv">5000</span> <span class="co"># Default size of the population</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>MU<span class="ot">&lt;-</span> <span class="dv">10000</span> <span class="co"># Default mean of the population</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>sd_wealth <span class="ot">&lt;-</span> <span class="dv">3000</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>population <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(N,MU,sd_wealth)</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"ggplot2"</span>)</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"Scripts/functions.R"</span>)        </span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a><span class="fu">gini</span>(population)</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(population, <span class="at">main=</span> <span class="st">"Population"</span>, <span class="at">xlab=</span> <span class="st">"wealth"</span>, <span class="at">ylab=</span><span class="st">"count"</span>, <span class="at">breaks =</span> <span class="dv">25</span>)</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>Now what will happen, when two agents meet?</span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>**Transactions**</span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>First I define what happens in a transaction, a random split.</span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>random_split <span class="ot">&lt;-</span> <span class="cf">function</span>(A, B) {</span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Ensure that A and B are not NULL or NA</span></span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(A) <span class="sc">||</span> <span class="fu">length</span>(A) <span class="sc">==</span> <span class="dv">0</span> <span class="sc">||</span> <span class="fu">is.na</span>(A)) A <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(B) <span class="sc">||</span> <span class="fu">length</span>(B) <span class="sc">==</span> <span class="dv">0</span> <span class="sc">||</span> <span class="fu">is.na</span>(B)) B <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate the total pot</span></span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a>  pot <span class="ot">&lt;-</span> A <span class="sc">+</span> B</span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Handle case where both actors have no wealth (pot = 0)</span></span>
+<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (pot <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>))  <span class="co"># Both actors get nothing</span></span>
+<span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a>  }    </span>
+<span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Generate a random share between 0 and the total pot</span></span>
+<span id="cb12-52"><a href="#cb12-52" aria-hidden="true" tabindex="-1"></a>  share <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">1</span>, <span class="dv">0</span>, pot)</span>
+<span id="cb12-53"><a href="#cb12-53" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-54"><a href="#cb12-54" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Return the two shares (first actor and second actor)</span></span>
+<span id="cb12-55"><a href="#cb12-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">c</span>(share, pot <span class="sc">-</span> share))</span>
+<span id="cb12-56"><a href="#cb12-56" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-57"><a href="#cb12-57" aria-hidden="true" tabindex="-1"></a><span class="fu">random_split</span>(<span class="dv">100</span>,<span class="dv">100</span>)</span>
+<span id="cb12-58"><a href="#cb12-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-59"><a href="#cb12-59" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-60"><a href="#cb12-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-61"><a href="#cb12-61" aria-hidden="true" tabindex="-1"></a>**Interactions**</span>
+<span id="cb12-62"><a href="#cb12-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-63"><a href="#cb12-63" aria-hidden="true" tabindex="-1"></a>Two random actors shall meet.</span>
+<span id="cb12-64"><a href="#cb12-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-67"><a href="#cb12-67" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-68"><a href="#cb12-68" aria-hidden="true" tabindex="-1"></a>anyone <span class="ot">&lt;-</span> <span class="cf">function</span>(N) {</span>
+<span id="cb12-69"><a href="#cb12-69" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span>(N<span class="dv">-1</span>), <span class="dv">2</span>)  <span class="co"># Randomly pick two different actors from the range 0 to N-1</span></span>
+<span id="cb12-70"><a href="#cb12-70" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-71"><a href="#cb12-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-72"><a href="#cb12-72" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Select two random actors from a population</span></span>
+<span id="cb12-73"><a href="#cb12-73" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">5000</span>  <span class="co"># Define the size of the population</span></span>
+<span id="cb12-74"><a href="#cb12-74" aria-hidden="true" tabindex="-1"></a><span class="fu">anyone</span>(N)</span>
+<span id="cb12-75"><a href="#cb12-75" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-76"><a href="#cb12-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-77"><a href="#cb12-77" aria-hidden="true" tabindex="-1"></a>**Simulation**</span>
+<span id="cb12-78"><a href="#cb12-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-79"><a href="#cb12-79" aria-hidden="true" tabindex="-1"></a>A function, how to perform single steps in simulation is needed, then for T steps.</span>
+<span id="cb12-80"><a href="#cb12-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-83"><a href="#cb12-83" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-84"><a href="#cb12-84" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to perform a single step in the simulation</span></span>
+<span id="cb12-85"><a href="#cb12-85" aria-hidden="true" tabindex="-1"></a>step <span class="ot">&lt;-</span> <span class="cf">function</span>(population, <span class="at">transaction =</span> random_split, <span class="at">interaction =</span> anyone) {</span>
+<span id="cb12-86"><a href="#cb12-86" aria-hidden="true" tabindex="-1"></a>  indices <span class="ot">&lt;-</span> <span class="fu">interaction</span>(<span class="fu">length</span>(population))  <span class="co"># Select two actors</span></span>
+<span id="cb12-87"><a href="#cb12-87" aria-hidden="true" tabindex="-1"></a>  i <span class="ot">&lt;-</span> indices[<span class="dv">1</span>]</span>
+<span id="cb12-88"><a href="#cb12-88" aria-hidden="true" tabindex="-1"></a>  j <span class="ot">&lt;-</span> indices[<span class="dv">2</span>]</span>
+<span id="cb12-89"><a href="#cb12-89" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-90"><a href="#cb12-90" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Split the wealth between the two actors</span></span>
+<span id="cb12-91"><a href="#cb12-91" aria-hidden="true" tabindex="-1"></a>  new_wealth <span class="ot">&lt;-</span> <span class="fu">transaction</span>(population[i], population[j])</span>
+<span id="cb12-92"><a href="#cb12-92" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-93"><a href="#cb12-93" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Update population with new wealth</span></span>
+<span id="cb12-94"><a href="#cb12-94" aria-hidden="true" tabindex="-1"></a>  population[i] <span class="ot">&lt;-</span> new_wealth[<span class="dv">1</span>]</span>
+<span id="cb12-95"><a href="#cb12-95" aria-hidden="true" tabindex="-1"></a>  population[j] <span class="ot">&lt;-</span> new_wealth[<span class="dv">2</span>]</span>
+<span id="cb12-96"><a href="#cb12-96" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-97"><a href="#cb12-97" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(population)</span>
+<span id="cb12-98"><a href="#cb12-98" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-99"><a href="#cb12-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-100"><a href="#cb12-100" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to simulate the population over T transactions</span></span>
+<span id="cb12-101"><a href="#cb12-101" aria-hidden="true" tabindex="-1"></a>simulate <span class="ot">&lt;-</span> <span class="cf">function</span>(population, T, <span class="at">step_function =</span> step, <span class="at">transaction =</span> random_split, <span class="at">interaction =</span> anyone) {</span>
+<span id="cb12-102"><a href="#cb12-102" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create a copy of the population to avoid modifying the original</span></span>
+<span id="cb12-103"><a href="#cb12-103" aria-hidden="true" tabindex="-1"></a>  population_history <span class="ot">&lt;-</span> <span class="fu">list</span>(population)</span>
+<span id="cb12-104"><a href="#cb12-104" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-105"><a href="#cb12-105" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Iterate through each time step</span></span>
+<span id="cb12-106"><a href="#cb12-106" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (t <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>T) {</span>
+<span id="cb12-107"><a href="#cb12-107" aria-hidden="true" tabindex="-1"></a>    population <span class="ot">&lt;-</span> <span class="fu">step_function</span>(population, transaction, interaction)</span>
+<span id="cb12-108"><a href="#cb12-108" aria-hidden="true" tabindex="-1"></a>    population_history[[<span class="fu">length</span>(population_history) <span class="sc">+</span> <span class="dv">1</span>]] <span class="ot">&lt;-</span> population</span>
+<span id="cb12-109"><a href="#cb12-109" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb12-110"><a href="#cb12-110" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-111"><a href="#cb12-111" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(population_history)  <span class="co"># Return the full history of population</span></span>
+<span id="cb12-112"><a href="#cb12-112" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-113"><a href="#cb12-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-114"><a href="#cb12-114" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Simulating a population of 4 actors for 8 time steps</span></span>
+<span id="cb12-115"><a href="#cb12-115" aria-hidden="true" tabindex="-1"></a>population <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">100</span>, <span class="dv">4</span>)  <span class="co"># Initial population where each actor has 100 wealth</span></span>
+<span id="cb12-116"><a href="#cb12-116" aria-hidden="true" tabindex="-1"></a>T <span class="ot">&lt;-</span> <span class="dv">8</span>  <span class="co"># Number of time steps</span></span>
+<span id="cb12-117"><a href="#cb12-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-118"><a href="#cb12-118" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the simulation</span></span>
+<span id="cb12-119"><a href="#cb12-119" aria-hidden="true" tabindex="-1"></a>simulation_result <span class="ot">&lt;-</span> <span class="fu">simulate</span>(population, T)</span>
+<span id="cb12-120"><a href="#cb12-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-121"><a href="#cb12-121" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the result of each step in the simulation</span></span>
+<span id="cb12-122"><a href="#cb12-122" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (pop <span class="cf">in</span> simulation_result) {</span>
+<span id="cb12-123"><a href="#cb12-123" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(pop)</span>
+<span id="cb12-124"><a href="#cb12-124" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-125"><a href="#cb12-125" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-126"><a href="#cb12-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-127"><a href="#cb12-127" aria-hidden="true" tabindex="-1"></a>**Simulation Visualization**</span>
+<span id="cb12-128"><a href="#cb12-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-129"><a href="#cb12-129" aria-hidden="true" tabindex="-1"></a>For many steps, another way to visualize is needed.</span>
+<span id="cb12-130"><a href="#cb12-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-133"><a href="#cb12-133" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-134"><a href="#cb12-134" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the function to calculate percentiles</span></span>
+<span id="cb12-135"><a href="#cb12-135" aria-hidden="true" tabindex="-1"></a>percent <span class="ot">&lt;-</span> <span class="cf">function</span>(pct, items) {</span>
+<span id="cb12-136"><a href="#cb12-136" aria-hidden="true" tabindex="-1"></a>  sorted_items <span class="ot">&lt;-</span> <span class="fu">sort</span>(items, <span class="at">na.last =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb12-137"><a href="#cb12-137" aria-hidden="true" tabindex="-1"></a>  index <span class="ot">&lt;-</span> <span class="fu">min</span>(<span class="fu">length</span>(sorted_items), <span class="fu">ceiling</span>(<span class="fu">length</span>(sorted_items) <span class="sc">*</span> pct <span class="sc">/</span> <span class="dv">100</span>))</span>
+<span id="cb12-138"><a href="#cb12-138" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(sorted_items[index])</span>
+<span id="cb12-139"><a href="#cb12-139" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-140"><a href="#cb12-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-141"><a href="#cb12-141" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the show function for visualization</span></span>
+<span id="cb12-142"><a href="#cb12-142" aria-hidden="true" tabindex="-1"></a>show <span class="ot">&lt;-</span> <span class="cf">function</span>(population, <span class="at">k =</span> <span class="dv">40</span>, <span class="at">percentiles =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">50</span>, <span class="dv">90</span>, <span class="dv">99</span>)) {</span>
+<span id="cb12-143"><a href="#cb12-143" aria-hidden="true" tabindex="-1"></a>  N <span class="ot">&lt;-</span> <span class="fu">length</span>(population)</span>
+<span id="cb12-144"><a href="#cb12-144" aria-hidden="true" tabindex="-1"></a>  start <span class="ot">&lt;-</span> population</span>
+<span id="cb12-145"><a href="#cb12-145" aria-hidden="true" tabindex="-1"></a>  results <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb12-146"><a href="#cb12-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-147"><a href="#cb12-147" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Run simulation and collect results at intervals</span></span>
+<span id="cb12-148"><a href="#cb12-148" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (t <span class="cf">in</span> <span class="fu">seq</span>(<span class="dv">0</span>, k <span class="sc">*</span> N, <span class="at">by =</span> N <span class="sc">/</span> <span class="dv">10</span>)) {</span>
+<span id="cb12-149"><a href="#cb12-149" aria-hidden="true" tabindex="-1"></a>    pop <span class="ot">&lt;-</span> <span class="fu">simulate</span>(population, <span class="at">T =</span> k <span class="sc">*</span> N)</span>
+<span id="cb12-150"><a href="#cb12-150" aria-hidden="true" tabindex="-1"></a>    results[[<span class="fu">length</span>(results) <span class="sc">+</span> <span class="dv">1</span>]] <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">t =</span> t, <span class="at">pop =</span> <span class="fu">sort</span>(<span class="fu">as.numeric</span>(pop[[t <span class="sc">+</span> <span class="dv">1</span>]])))  <span class="co"># Ensure pop is numeric and sorted</span></span>
+<span id="cb12-151"><a href="#cb12-151" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb12-152"><a href="#cb12-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-153"><a href="#cb12-153" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Print statistics</span></span>
+<span id="cb12-154"><a href="#cb12-154" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">'   t    Gini stdev'</span>, <span class="fu">paste</span>(<span class="fu">sprintf</span>(<span class="st">"%3d%%"</span>, percentiles), <span class="at">collapse =</span> <span class="st">" "</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb12-155"><a href="#cb12-155" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">'------- ---- -----'</span>, <span class="fu">paste</span>(<span class="fu">rep</span>(<span class="st">'----'</span>, <span class="fu">length</span>(percentiles)), <span class="at">collapse =</span> <span class="st">" "</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb12-156"><a href="#cb12-156" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-157"><a href="#cb12-157" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (result <span class="cf">in</span> results) {</span>
+<span id="cb12-158"><a href="#cb12-158" aria-hidden="true" tabindex="-1"></a>    t <span class="ot">&lt;-</span> result<span class="sc">$</span>t</span>
+<span id="cb12-159"><a href="#cb12-159" aria-hidden="true" tabindex="-1"></a>    pop <span class="ot">&lt;-</span> result<span class="sc">$</span>pop</span>
+<span id="cb12-160"><a href="#cb12-160" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (t <span class="sc">%%</span> (k <span class="sc">*</span> N <span class="sc">/</span> <span class="dv">10</span>) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb12-161"><a href="#cb12-161" aria-hidden="true" tabindex="-1"></a>      data <span class="ot">&lt;-</span> <span class="fu">sapply</span>(percentiles, percent, <span class="at">items =</span> pop)</span>
+<span id="cb12-162"><a href="#cb12-162" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">'%7d %.2f %.1f'</span>, t, <span class="fu">gini</span>(pop), <span class="fu">sd</span>(pop)), data, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb12-163"><a href="#cb12-163" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb12-164"><a href="#cb12-164" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb12-165"><a href="#cb12-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-166"><a href="#cb12-166" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Prepare data for plotting percentiles</span></span>
+<span id="cb12-167"><a href="#cb12-167" aria-hidden="true" tabindex="-1"></a>  percent_plot_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
+<span id="cb12-168"><a href="#cb12-168" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (result <span class="cf">in</span> results) {</span>
+<span id="cb12-169"><a href="#cb12-169" aria-hidden="true" tabindex="-1"></a>    t <span class="ot">&lt;-</span> result<span class="sc">$</span>t</span>
+<span id="cb12-170"><a href="#cb12-170" aria-hidden="true" tabindex="-1"></a>    pop <span class="ot">&lt;-</span> result<span class="sc">$</span>pop</span>
+<span id="cb12-171"><a href="#cb12-171" aria-hidden="true" tabindex="-1"></a>    percent_values <span class="ot">&lt;-</span> <span class="fu">sapply</span>(percentiles, percent, <span class="at">items =</span> pop)</span>
+<span id="cb12-172"><a href="#cb12-172" aria-hidden="true" tabindex="-1"></a>    percent_plot_data <span class="ot">&lt;-</span> <span class="fu">rbind</span>(percent_plot_data, <span class="fu">c</span>(t, percent_values))</span>
+<span id="cb12-173"><a href="#cb12-173" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb12-174"><a href="#cb12-174" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-175"><a href="#cb12-175" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>(percent_plot_data) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"t"</span>, <span class="fu">paste0</span>(<span class="st">"pct_"</span>, percentiles))</span>
+<span id="cb12-176"><a href="#cb12-176" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-177"><a href="#cb12-177" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Plot using ggplot2</span></span>
+<span id="cb12-178"><a href="#cb12-178" aria-hidden="true" tabindex="-1"></a>  percent_plot_data_long <span class="ot">&lt;-</span> <span class="fu">reshape</span>(percent_plot_data, <span class="at">varying =</span> <span class="fu">paste0</span>(<span class="st">"pct_"</span>, percentiles),</span>
+<span id="cb12-179"><a href="#cb12-179" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">v.names =</span> <span class="st">"percentile"</span>, <span class="at">timevar =</span> <span class="st">"percentile_type"</span>,</span>
+<span id="cb12-180"><a href="#cb12-180" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">times =</span> percentiles, <span class="at">direction =</span> <span class="st">"long"</span>)</span>
+<span id="cb12-181"><a href="#cb12-181" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-182"><a href="#cb12-182" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(percent_plot_data_long, <span class="fu">aes</span>(<span class="at">x =</span> percentile, <span class="at">y =</span> t, <span class="at">color =</span> <span class="fu">as.factor</span>(percentile_type))) <span class="sc">+</span></span>
+<span id="cb12-183"><a href="#cb12-183" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb12-184"><a href="#cb12-184" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Percentile Plots"</span>, <span class="at">x =</span> <span class="st">"Wealth"</span>, <span class="at">y =</span> <span class="st">"Time"</span>) <span class="sc">+</span></span>
+<span id="cb12-185"><a href="#cb12-185" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb12-186"><a href="#cb12-186" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_discrete</span>(<span class="at">name =</span> <span class="st">"Percentiles"</span>) <span class="sc">+</span></span>
+<span id="cb12-187"><a href="#cb12-187" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span>
+<span id="cb12-188"><a href="#cb12-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-189"><a href="#cb12-189" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Histograms</span></span>
+<span id="cb12-190"><a href="#cb12-190" aria-hidden="true" tabindex="-1"></a>  <span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb12-191"><a href="#cb12-191" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hist</span>(start, <span class="at">main =</span> <span class="st">"Histogram of Start Wealth"</span>, <span class="at">xlab =</span> <span class="st">"Wealth"</span>, <span class="at">col =</span> <span class="st">"lightblue"</span>, <span class="at">breaks =</span> <span class="dv">10</span>)</span>
+<span id="cb12-192"><a href="#cb12-192" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hist</span>(pop, <span class="at">main =</span> <span class="st">"Histogram of End Wealth"</span>, <span class="at">xlab =</span> <span class="st">"Wealth"</span>, <span class="at">col =</span> <span class="st">"lightgreen"</span>, <span class="at">breaks =</span> <span class="dv">10</span>)</span>
+<span id="cb12-193"><a href="#cb12-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-194"><a href="#cb12-194" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Ordered Curves</span></span>
+<span id="cb12-195"><a href="#cb12-195" aria-hidden="true" tabindex="-1"></a>  order <span class="ot">&lt;-</span> <span class="fu">seq_along</span>(pop)</span>
+<span id="cb12-196"><a href="#cb12-196" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(<span class="fu">sort</span>(start), order, <span class="at">type =</span> <span class="st">'l'</span>, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">xlab =</span> <span class="st">"Wealth"</span>, <span class="at">ylab =</span> <span class="st">"Order"</span>, </span>
+<span id="cb12-197"><a href="#cb12-197" aria-hidden="true" tabindex="-1"></a>       <span class="at">main =</span> <span class="st">"Ordered Curves"</span>)</span>
+<span id="cb12-198"><a href="#cb12-198" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lines</span>(<span class="fu">sort</span>(pop), order, <span class="at">col =</span> <span class="st">"red"</span>)</span>
+<span id="cb12-199"><a href="#cb12-199" aria-hidden="true" tabindex="-1"></a>  <span class="fu">legend</span>(<span class="st">"topleft"</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"Start"</span>, <span class="st">"End"</span>), <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"red"</span>), <span class="at">lty =</span> <span class="dv">1</span>)</span>
+<span id="cb12-200"><a href="#cb12-200" aria-hidden="true" tabindex="-1"></a>  <span class="fu">grid</span>()</span>
+<span id="cb12-201"><a href="#cb12-201" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-202"><a href="#cb12-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-203"><a href="#cb12-203" aria-hidden="true" tabindex="-1"></a><span class="co"># Example usage</span></span>
+<span id="cb12-204"><a href="#cb12-204" aria-hidden="true" tabindex="-1"></a>population <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">100</span>, <span class="dv">4</span>)  <span class="co"># Initial population of 4 actors with wealth of 100 each</span></span>
+<span id="cb12-205"><a href="#cb12-205" aria-hidden="true" tabindex="-1"></a><span class="fu">show</span>(population)  <span class="co"># Run the show function to visualize results</span></span>
+<span id="cb12-206"><a href="#cb12-206" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-207"><a href="#cb12-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-208"><a href="#cb12-208" aria-hidden="true" tabindex="-1"></a><span class="sc">\`\`\`</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
