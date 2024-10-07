@@ -9,9 +9,9 @@ This Assignement relied heavily on AI.
 
 First, I want to define the default size and mean of the population an then initialize the population.
 
-In a Scripts file, I defined the gini function.
+In a Scripts file, I defined the gini function to compute this index for the population
 
-Then I create a histogram of the population.
+Then as a visualisation a histogram of the population is created.
 
 ```{r}
 N <-5000 # Default size of the population
@@ -28,7 +28,7 @@ Now what will happen, when two agents meet?
 
 **Transactions**
 
-First I define what happens in a transaction, a random split.
+First I define what happens in a transaction, a random split. As an example, two shares of 100 are split:
 
 ```{r}
 random_split <- function(A, B) {
@@ -56,21 +56,24 @@ random_split(100,100)
 
 **Interactions**
 
-Two random actors shall meet.
+Two different actors shall be randomly picked from the population
 
 ```{r}
 anyone <- function(N) {
-  sample(0:(N-1), 2)  # Randomly pick two different actors from the range 0 to N-1
+  sample(0:(N-1), 2)  
 }
 
-# Example: Select two random actors from a population
-N <- 5000  # Define the size of the population
+N <- 5000 
 anyone(N)
 ```
 
 **Simulation**
 
-A function, how to perform single steps in simulation is needed, then for T steps.
+In order to run the simulation, there needs to be a function defining each single step. Two actors meet, their wealth is split and both leave the interaction with updated wealth.
+
+This step shall be repeated for T steps.
+
+as output the results of every step shall be printed.
 
 ```{r}
 # Function to perform a single step in the simulation
@@ -118,7 +121,7 @@ for (pop in simulation_result) {
 
 **Simulation Visualization**
 
-For many steps, another way to visualize is needed.
+If many steps occur, better visualisation is needed, i.e. ordered curves, a printout, histogram and percentile plots.
 
 ```{r}
 # Define the function to calculate percentiles
@@ -194,5 +197,7 @@ show <- function(population, k = 40, percentiles = c(1, 10, 50, 90, 99)) {
 population <- rep(100, 4)  # Initial population of 4 actors with wealth of 100 each
 show(population)  # Run the show function to visualize results
 ```
+
+The visualized output doesn't seem to working, however I currently lack the skills to fix this.
 
 \`\`\`
