@@ -198,6 +198,131 @@ population <- rep(100, 4)  # Initial population of 4 actors with wealth of 100 e
 show(population)  # Run the show function to visualize results
 ```
 
-The visualized output doesn't seem to working, however I currently lack the skills to fix this.
+This didn't work out exactly as planned, lets try again:
 
-\`\`\`
+**Second Try**
+
+Since I hit a wall, I asked my colleague Thomas Walker for help and he was so kind as to share his code with me, so I will try to follow his steps in the following section:
+
+This part looks pretty similar. The parameters of the population get defined and a historgam is produced, with a label of the gini index next to the histogram.
+
+```{r}
+N  <- 5000 # Population
+MU <- 100. # Mean of the Population
+std_dev <- MU/5 # Standard deviation
+
+population <- rnorm(N, mean = MU, sd = std_dev)
+
+hist(population, breaks = 50, main = "Random Gaussian Distribution", xlab = "Value", col = "skyblue")
+gini_text <- round(gini(population),4)
+text(x = 150, y = 400, labels = paste(gini_text), col = "skyblue", cex = 1.5)
+```
+
+Thomas now defines the gini function.
+
+```{r}
+gini <- function(y) {
+  # Sort the population
+  y <- sort(y)
+  
+  # Number of elements
+  n <- length(y)
+  
+  # Calculate the Gini coefficient
+  numer <- 2 * sum((1:n) * y)
+  denom <- n * sum(y)
+  
+  # Return the Gini coefficient
+  return((numer / denom) - (n + 1) / n)
+}
+```
+
+Thomas adds his previous actions together and computes the gini index of the population.
+
+```{r}
+gini(population)
+```
+
+as a next step Thomas defines the random split function.
+
+```{r}
+random_split <- function(x,y) {
+  # Sum them up
+  pot <- x+y
+  
+  #how to share
+  part1 <- sample(0:pot, 1)
+  
+  #calcutlating the  split 
+  part2 <- pot - part1
+  
+  # Return the Gini coefficient
+  return(c(part1, part2))
+}
+random_split(70,30)
+```
+
+He also defines the anyone function.
+
+```{r}
+anyone <- function(x){
+  sample(0:N, 2)
+}
+
+anyone(N) 
+```
+
+Thomas follows this up with a full-blown simulation.
+
+```{r}
+
+N  <- 5000 # Population.
+MU <- 100 # Mean of the Population
+std_dev <- MU/5 # Standard deviation
+
+population <- rnorm(N, mean = MU, sd = std_dev)
+round_population <- round(population)
+
+
+anyone <- function(round_population){
+  sample(1:length(round_population), 2)
+}
+
+random_split <- function(x,y) {
+  # Sum them up
+  pot <- x+y
+  #how to share
+  part1 <- sample(0:pot, 1)
+  #calcutlating the  split 
+  part2 <- pot - part1
+  # Return the Gini coefficient
+  return(c(part1, part2))
+}
+
+simulation <- function(round_population,repetitions) {
+  for (i in 1:repetitions) {
+      selected_people <- anyone(round_population)
+      #getting the people for trading
+      person1 <- round_population[selected_people[1]]
+      person2 <- round_population[selected_people[2]]
+      #making the new wealth distribution between those two
+      new_wealth <- random_split(person1, person2)
+      #overwriting the old bank statement with the new one
+      round_population[selected_people[1]] <- new_wealth[1]
+      round_population[selected_people[2]] <- new_wealth[2]
+      
+  }
+  return(round_population)
+}
+
+repetitions <- 10000
+
+final_population <- simulation(round_population, repetitions)
+
+hist(final_population, breaks = 50, main = "After Simulation Grapn", xlab = "Value", col = "skyblue")
+```
+
+Incredible, I'm at a loss for words. Nothing but respect for Thomas.
+
+```         
+```
